@@ -82,6 +82,10 @@ public class SpaDayController {
             }
         }
 
+//        model.addAttribute(name);
+//        model.addAttribute(skintype);
+//        model.addAttribute(manipedi);
+
         return "menu";
     }
 }
