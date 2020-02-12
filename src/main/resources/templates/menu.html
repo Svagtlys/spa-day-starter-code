@@ -11,12 +11,31 @@
 
         <div id = "clientProfile">
             <h2>My Profile</h2>
-<!--            <p th:text="${name}">Name</p>-->
-<!--            <p th:text="${'Skin Type: ' + skintype}">Skin Type</p>-->
-<!--            <p th:text="${manipedi}">Mani or Pedi?</p>-->
+            <p th:text="${name}">Name</p>
+            <p th:text="${'Skin Type: ' + skintype}">Skin Type</p>
+            <p th:text="${manipedi}">Mani or Pedi?</p>
         </div>
 
         <div id = "servicesMenu">
+            <h3>Suggected Facial Treatments</h3>
+            <table>
+                <th:block th:each="facial : ${facials}">
+                    <tr>
+                        <td th:text="${facial}">Facial 1</td>
+                    </tr>
+                </th:block>
+            </table>
+
+<!--            <div th:if="${manipedi.equals('manicure') or manipedi.equals('both')}">-->
+            <div th:if="${manipedi.equals('manicure')}">
+                <h3>Manicure</h3>
+                <p th:replace="fragments :: manicureDescription">Description</p>
+            </div>
+<!--            <div th:if="${manipedi.equals('pedicure') or manipedi.equals('both)}">-->
+            <div th:if="${manipedi.equals('pedicure')}">
+                <h3>Pedicure</h3>
+                <p th:replace="fragments :: pedicureDescription">Description</p>
+            </div>
         </div>
     </body>
 </html>
